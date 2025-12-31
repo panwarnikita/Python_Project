@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Edit Student</h2>
+        
+        <form action="/edit/{{ s[0] }}" method="post" class="space-y-4">
+            <input name="name" value="{{ s[1] }}" required class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400">
+            <input name="email" type="email" value="{{ s[2] }}" required class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400">
+            <input name="campus" value="{{ s[3] }}" required class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400">
+            <input name="module" value="{{ s[4] }}" required class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-400">
+            
+            <div class="flex gap-3">
+                <button class="w-full bg-blue-600 text-white py-2 rounded font-bold">Update</button>
+                <a href="/students" class="w-full bg-gray-200 text-center py-2 rounded font-bold">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

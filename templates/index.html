@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Add New Student</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="p-3 mb-4 rounded {% if category == 'error' %}bg-red-100 text-red-700{% else %}bg-green-100 text-green-700{% endif %}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form action="/add" method="post" class="space-y-4">
+            <input autocomplete="off" name="name" placeholder="Name" required class="w-full p-2 border rounded outline-none focus:ring-2 focus:ring-green-400">
+            <input autocomplete="off"  name="email" type="email" placeholder="Email" required class="w-full p-2 border rounded outline-none focus:ring-2 focus:ring-green-400">
+            <input autocomplete="off"  name="campus" placeholder="Campus" required class="w-full p-2 border rounded outline-none focus:ring-2 focus:ring-green-400">
+            <input autocomplete="off"  name="module" placeholder="Module" required class="w-full p-2 border rounded outline-none focus:ring-2 focus:ring-green-400">
+            <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded shadow">Add Student</button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <a href="/students" class="text-blue-600 hover:underline">View Student List →</a>
+        </div>
+    </div>
+</body>
+</html>
